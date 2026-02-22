@@ -234,12 +234,12 @@
   /* ========== HERO ========== */
   .hero {
     position: relative;
-    height: auto;
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 700px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 160px 48px 100px;
+    justify-content: flex-end;
+    padding: 0 48px 80px;
     overflow: hidden;
     margin-top: 100px;
   }
@@ -309,13 +309,21 @@
     color: var(--orange);
   }
 
-  .hero-bottom {
+  .hero-lower {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     gap: 48px;
+  }
+
+  .hero-left {
+    flex: 1;
+  }
+
+  .hero-bottom {
     animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
     opacity: 0;
+    flex-shrink: 0;
   }
 
   .hero-desc {
@@ -1067,10 +1075,10 @@
     .nav-toggle { display: flex; }
     .mobile-menu { display: flex; }
 
-    .hero { padding: 200px 20px 60px; margin-top: 92px; min-height: auto; height: auto; }
+    .hero { padding: 0 20px 60px; margin-top: 92px; min-height: 100vh; height: auto; }
     .hero-title { font-size: clamp(56px, 14vw, 120px); margin-bottom: 24px; letter-spacing: 0.02em; }
     .hero-label { font-size: 10px; letter-spacing: 3px; margin-bottom: 16px; }
-    .hero-bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .hero-lower { flex-direction: column; align-items: flex-start; gap: 24px; }
     .hero-desc { font-size: 15px; max-width: 100%; }
     .hero-cta { padding: 16px 32px; font-size: 12px; width: 100%; justify-content: center; }
 
@@ -1118,7 +1126,7 @@
     .nav { height: 56px; }
     .nav-logo { font-size: 22px; letter-spacing: 4px; }
 
-    .hero { padding: 180px 16px 48px; min-height: auto; height: auto; margin-top: 88px; }
+    .hero { padding: 0 16px 48px; min-height: 100vh; height: auto; margin-top: 88px; }
     .hero-title { font-size: clamp(48px, 15vw, 80px); line-height: 0.82; margin-bottom: 20px; letter-spacing: 0.01em; }
     .hero-label { font-size: 9px; letter-spacing: 2px; }
     .hero-desc { font-size: 14px; line-height: 1.6; }
@@ -1272,13 +1280,17 @@
 
   <div class="hero-content">
     <div class="hero-label">Drop 001 / Los Angeles</div>
-    <h1 class="hero-title">The Street<br>Is Our Stage<span class="title-accent">.</span></h1>
-    <div class="hero-bottom">
-      <p class="hero-desc">Premium streetwear born from LA's BikeLife culture. Two pieces. Limited run. When it's gone, it's gone.</p>
-      <a href="#shop" class="hero-cta">
-        <span>Shop Drop 001</span>
-        <span class="cta-arrow">&rarr;</span>
-      </a>
+    <div class="hero-lower">
+      <div class="hero-left">
+        <h1 class="hero-title">The Street<br>Is Our Stage<span class="title-accent">.</span></h1>
+        <p class="hero-desc">Premium streetwear born from LA's BikeLife culture. Two pieces. Limited run. When it's gone, it's gone.</p>
+      </div>
+      <div class="hero-bottom">
+        <a href="#shop" class="hero-cta">
+          <span>Shop Drop 001</span>
+          <span class="cta-arrow">&rarr;</span>
+        </a>
+      </div>
     </div>
   </div>
 
