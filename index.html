@@ -38,6 +38,7 @@
     background: var(--surface);
     scrollbar-width: thin;
     scrollbar-color: var(--smoke) var(--surface);
+    overflow-x: hidden;
   }
 
   body {
@@ -300,6 +301,8 @@
     margin-bottom: 32px;
     animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
     opacity: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .hero-title .title-accent {
@@ -1064,8 +1067,8 @@
     .nav-toggle { display: flex; }
     .mobile-menu { display: flex; }
 
-    .hero { padding: 0 20px 48px; margin-top: 92px; min-height: 600px; }
-    .hero-title { font-size: clamp(56px, 14vw, 120px); margin-bottom: 24px; }
+    .hero { padding: 200px 20px 60px; margin-top: 92px; min-height: auto; height: auto; }
+    .hero-title { font-size: clamp(56px, 14vw, 120px); margin-bottom: 24px; letter-spacing: 0.02em; }
     .hero-label { font-size: 10px; letter-spacing: 3px; margin-bottom: 16px; }
     .hero-bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
     .hero-desc { font-size: 15px; max-width: 100%; }
@@ -1080,28 +1083,30 @@
 
     .products { padding: 0 20px 80px; }
     .products-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 40px; }
-    .products-title { font-size: clamp(40px, 10vw, 64px); }
+    .products-title { font-size: clamp(40px, 10vw, 64px); letter-spacing: 0.02em; }
     .product-grid { grid-template-columns: 1fr; gap: 32px; }
     .product-overlay { transform: translateY(0); opacity: 1; }
 
     .editorial-image { min-height: 45vh; }
     .editorial-content { padding: 48px 20px; border-left: none; }
-    .editorial-heading { font-size: clamp(36px, 8vw, 56px); }
+    .editorial-heading { font-size: clamp(36px, 8vw, 56px); letter-spacing: 0.02em; }
     .editorial-body { font-size: 15px; max-width: 100%; }
 
     .trust { padding: 48px 20px; grid-template-columns: 1fr 1fr; gap: 32px; }
     .trust-number { font-size: 40px; }
 
     .email-section { padding: 80px 20px; }
-    .email-title { font-size: clamp(36px, 8vw, 56px); }
+    .email-title { font-size: clamp(36px, 8vw, 56px); letter-spacing: 0.02em; }
     .email-sub { font-size: 15px; }
     .email-form { flex-direction: column; }
     .email-form input { padding: 16px 20px; }
     .email-form button { width: 100%; padding: 16px; }
 
-    .footer { padding: 48px 20px 32px; }
+    .footer { padding: 48px 20px 32px; overflow: hidden; }
     .footer-top { grid-template-columns: 1fr; gap: 32px; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-copy { word-break: break-word; }
+    .footer-brand .footer-tagline { max-width: 100%; }
 
     .scroll-hint { display: none; }
   }
@@ -1113,8 +1118,8 @@
     .nav { height: 56px; }
     .nav-logo { font-size: 22px; letter-spacing: 4px; }
 
-    .hero { padding: 0 16px 40px; min-height: 550px; margin-top: 88px; }
-    .hero-title { font-size: clamp(48px, 16vw, 90px); line-height: 0.82; margin-bottom: 20px; }
+    .hero { padding: 180px 16px 48px; min-height: auto; height: auto; margin-top: 88px; }
+    .hero-title { font-size: clamp(48px, 15vw, 80px); line-height: 0.82; margin-bottom: 20px; letter-spacing: 0.01em; }
     .hero-label { font-size: 9px; letter-spacing: 2px; }
     .hero-desc { font-size: 14px; line-height: 1.6; }
     .hero-cta { padding: 14px 24px; font-size: 11px; }
@@ -1127,7 +1132,7 @@
 
     .products { padding: 0 16px 64px; }
     .products-label { font-size: 10px; letter-spacing: 3px; }
-    .products-title { font-size: clamp(36px, 12vw, 56px); }
+    .products-title { font-size: clamp(36px, 12vw, 56px); letter-spacing: 0.01em; }
     .product-info { padding: 16px 0; }
     .product-name { font-size: 15px; }
     .product-price { font-size: 16px; }
@@ -1135,7 +1140,7 @@
     .editorial-image { min-height: 40vh; }
     .editorial-content { padding: 40px 16px; }
     .editorial-label { font-size: 9px; letter-spacing: 3px; }
-    .editorial-heading { font-size: clamp(32px, 10vw, 48px); margin-bottom: 24px; }
+    .editorial-heading { font-size: clamp(32px, 10vw, 48px); margin-bottom: 24px; letter-spacing: 0.01em; }
     .editorial-body { font-size: 14px; margin-bottom: 32px; }
 
     .trust { padding: 40px 16px; gap: 24px; }
@@ -1144,15 +1149,15 @@
 
     .email-section { padding: 64px 16px; }
     .email-label { font-size: 9px; }
-    .email-title { font-size: clamp(32px, 10vw, 48px); }
+    .email-title { font-size: clamp(32px, 10vw, 48px); letter-spacing: 0.01em; }
     .email-sub { font-size: 14px; margin-bottom: 32px; }
 
-    .footer { padding: 40px 16px 24px; }
-    .footer-brand .footer-logo { font-size: 28px; }
-    .footer-brand .footer-tagline { font-size: 14px; }
+    .footer { padding: 40px 16px 24px; overflow: hidden; }
+    .footer-brand .footer-logo { font-size: 28px; letter-spacing: 4px; }
+    .footer-brand .footer-tagline { font-size: 14px; max-width: 100%; }
     .footer-col-title { font-size: 9px; }
     .footer-links a { font-size: 13px; }
-    .footer-copy { font-size: 9px; }
+    .footer-copy { font-size: 9px; word-break: break-word; }
     .footer-socials { gap: 20px; }
 
     .mobile-menu a { font-size: 40px; letter-spacing: 4px; }
@@ -1160,14 +1165,14 @@
 
   /* Very small screens */
   @media (max-width: 360px) {
-    .hero-title { font-size: 44px; }
+    .hero-title { font-size: 44px; letter-spacing: 0; }
     .hero-desc { font-size: 13px; }
     .hero-cta { padding: 12px 20px; font-size: 10px; letter-spacing: 1.5px; }
-    .products-title { font-size: 32px; }
-    .editorial-heading { font-size: 28px; }
+    .products-title { font-size: 32px; letter-spacing: 0; }
+    .editorial-heading { font-size: 28px; letter-spacing: 0; }
     .trust { grid-template-columns: 1fr; }
     .trust-number { font-size: 32px; }
-    .email-title { font-size: 28px; }
+    .email-title { font-size: 28px; letter-spacing: 0; }
     .mobile-menu a { font-size: 32px; }
   }
 
