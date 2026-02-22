@@ -234,12 +234,12 @@
   /* ========== HERO ========== */
   .hero {
     position: relative;
-    height: 100vh;
-    min-height: 700px;
+    height: auto;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 48px 80px;
+    justify-content: center;
+    padding: 160px 48px 100px;
     overflow: hidden;
     margin-top: 100px;
   }
@@ -293,16 +293,15 @@
   .hero-title {
     font-family: 'Dharma Gothic E', 'Impact', sans-serif;
     font-weight: 700;
-    font-size: clamp(72px, 12vw, 160px);
-    letter-spacing: 0.06em;
+    font-size: clamp(60px, 10vw, 130px);
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     line-height: 0.85;
     color: var(--warm-white);
     margin-bottom: 32px;
     animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
     opacity: 0;
-    overflow-wrap: break-word;
-    word-break: break-word;
+    max-width: 100%;
   }
 
   .hero-title .title-accent {
