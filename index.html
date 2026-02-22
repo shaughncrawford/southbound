@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOUTHBOUND — Ride Clean</title>
+<meta property="og:title" content="SOUTHBOUND — The City Is The Track.">
+<meta property="og:description" content="Premium streetwear born from LA's BikeLife culture. Drop 001: The Crenshaw Hoodie + The 110 Cargo. Limited run.">
+<meta property="og:image" content="/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SOUTHBOUND — The City Is The Track.">
+<meta name="twitter:description" content="Premium streetwear born from LA's BikeLife culture. Drop 001 now live.">
+<meta name="twitter:image" content="/og-image.png">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  @import url('https://fonts.cdnfonts.com/css/dharma-gothic-e');
+
+  :root {
+    --asphalt: #1A1A1A;
+    --smoke: #2D2D2D;
+    --concrete: #A3A099;
+    --warm-white: #F5F0EB;
+    --orange: #E85D26;
+    --gold: #D4A843;
+    --surface: #0E0E0E;
+    --surface-2: #161616;
+    --border: rgba(163,160,153,0.12);
+    --border-hover: rgba(163,160,153,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    background: var(--surface);
+    scrollbar-width: thin;
+    scrollbar-color: var(--smoke) var(--surface);
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--surface);
+    color: var(--warm-white);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--orange);
+    color: var(--asphalt);
+  }
+
+  /* GRAIN OVERLAY */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px;
+  }
+
+  /* ========== ANIMATIONS ========== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes expandLine {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ========== NAV ========== */
+  .nav {
+    position: fixed;
+    top: 36px; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0 48px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(14,14,14,0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.4s ease;
+  }
+
+  .nav.scrolled {
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .nav-links a {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--concrete);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--orange);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--warm-white); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cart {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--concrete);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-cart:hover { color: var(--warm-white); }
+
+  .cart-dot {
+    width: 7px; height: 7px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: none;
+  }
+
+  /* ========== ANNOUNCEMENT BAR ========== */
+  .announce {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1001;
+    height: 36px;
+    background: var(--asphalt);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  .announce-track {
+    display: flex;
+    white-space: nowrap;
+    animation: ticker 30s linear infinite;
+  }
+
+  .announce-item {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--concrete);
+    padding: 0 48px;
+    flex-shrink: 0;
+  }
+
+  .announce-item span {
+    color: var(--orange);
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 48px 80px;
+    overflow: hidden;
+    margin-top: 100px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--surface);
+    overflow: hidden;
+  }
+
+  .hero-bg .hero-image {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-bg .hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60%;
+    background: linear-gradient(to top, var(--surface) 0%, transparent 100%);
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+    animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .hero-title {
+    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-weight: 700;
+    font-size: clamp(72px, 12vw, 160px);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 0.85;
+    color: var(--warm-white);
+    margin-bottom: 32px;
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+    opacity: 0;
+  }
+
+  .hero-title .title-accent {
+    color: var(--orange);
+  }
+
+  .hero-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 48px;
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+    opacity: 0;
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--concrete);
+    max-width: 420px;
+    line-height: 1.7;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    text-decoration: none;
+    padding: 18px 40px;
+    border: 1px solid var(--warm-white);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--warm-white);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hero-cta:hover::before { transform: translateY(0); }
+
+  .hero-cta span { position: relative; z-index: 1; }
+
+  .hero-cta:hover { color: var(--asphalt); border-color: var(--warm-white); }
+
+  .hero-cta .cta-arrow {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s;
+  }
+
+  .hero-cta:hover .cta-arrow { transform: translateX(4px); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 1s 1.5s forwards;
+    opacity: 0;
+  }
+
+  .scroll-hint span {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(163,160,153,0.3);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--orange), transparent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* ========== MARQUEE DIVIDER ========== */
+  .marquee-divider {
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  .marquee-track {
+    display: flex;
+    white-space: nowrap;
+    animation: ticker 20s linear infinite;
+  }
+
+  .marquee-item {
+    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-size: 48px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(245,240,235,0.06);
+    padding: 0 48px;
+    flex-shrink: 0;
+  }
+
+  .marquee-item .mq-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--orange);
+    border-radius: 50%;
+    margin: 0 24px;
+    vertical-align: middle;
+  }
+
+  /* ========== BRAND STATEMENT ========== */
+  .statement {
+    padding: 160px 48px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .statement-inner {
+    max-width: 800px;
+    text-align: center;
+  }
+
+  .statement-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(24px, 3.5vw, 40px);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--warm-white);
+    letter-spacing: -0.01em;
+  }
+
+  .statement-text em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .statement-attr {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--concrete);
+    margin-top: 48px;
+    display: block;
+  }
+
+  /* ========== PRODUCTS ========== */
+  .products {
+    padding: 0 48px 160px;
+  }
+
+  .products-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 64px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .products-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .products-title {
+    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+
+  .products-view-all {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--concrete);
+    text-decoration: none;
+    transition: color 0.3s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .products-view-all:hover { color: var(--warm-white); }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .product-card {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .product-img-wrap {
+    position: relative;
+    aspect-ratio: 3/4;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-card:hover .product-img-wrap {
+    border-color: var(--border-hover);
+  }
+
+  .product-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .product-card:hover .product-img {
+    transform: scale(1.03);
+  }
+
+  .product-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 24px;
+    background: linear-gradient(to top, rgba(14,14,14,0.95) 0%, transparent 100%);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .product-card:hover .product-overlay {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .product-sizes {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .size-btn {
+    width: 40px; height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-hover);
+    background: transparent;
+    color: var(--warm-white);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .size-btn:hover, .size-btn.active {
+    background: var(--warm-white);
+    color: var(--asphalt);
+    border-color: var(--warm-white);
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--orange);
+    border: none;
+    color: var(--warm-white);
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .add-to-cart-btn:hover {
+    background: #d14f1e;
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 16px; left: 16px;
+    z-index: 2;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    background: var(--orange);
+    color: var(--warm-white);
+  }
+
+  .product-info {
+    padding: 20px 0;
+  }
+
+  .product-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--warm-white);
+    margin-bottom: 4px;
+  }
+
+  .product-detail {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--concrete);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .product-price {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--warm-white);
+  }
+
+  /* ========== EDITORIAL SECTION ========== */
+  .editorial {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 90vh;
+  }
+
+  .editorial-image {
+    position: relative;
+    background: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .editorial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  .editorial-image .ed-placeholder {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(163,160,153,0.15);
+    text-align: center;
+    line-height: 2.2;
+    padding: 24px;
+  }
+
+  .editorial-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+
+  .editorial-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 24px;
+  }
+
+  .editorial-heading {
+    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin-bottom: 32px;
+  }
+
+  .editorial-body {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--concrete);
+    line-height: 1.8;
+    max-width: 440px;
+    margin-bottom: 40px;
+  }
+
+  .editorial-link {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .editorial-link:hover {
+    border-color: var(--orange);
+    gap: 18px;
+  }
+
+  /* ========== TRUST STRIP ========== */
+  .trust {
+    padding: 80px 48px;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+  }
+
+  .trust-item {
+    text-align: center;
+  }
+
+  .trust-number {
+    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-size: 48px;
+    color: var(--warm-white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .trust-number .trust-accent { color: var(--orange); }
+
+  .trust-desc {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--concrete);
+    line-height: 1.6;
+  }
+
+  /* ========== EMAIL CAPTURE ========== */
+  .email-section {
+    padding: 120px 48px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    position: relative;
+    background: #111111;
+    z-index: 1;
+  }
+
+  .email-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(212,97,42,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .email-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .email-title {
+    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .email-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--concrete);
+    max-width: 420px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+    position: relative;
+  }
+
+  .email-form {
+    display: flex;
+    max-width: 480px;
+    margin: 0 auto;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s;
+    position: relative;
+  }
+
+  .email-form:focus-within {
+    border-color: var(--orange);
+  }
+
+  .email-form input {
+    flex: 1;
+    padding: 18px 24px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--warm-white);
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .email-form input::placeholder {
+    color: rgba(163,160,153,0.4);
+  }
+
+  .email-form button {
+    padding: 18px 32px;
+    background: var(--orange);
+    border: none;
+    color: var(--warm-white);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .email-form button:hover {
+    background: #d14f1e;
+  }
+
+  .email-fine {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: rgba(163,160,153,0.3);
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    padding: 80px 48px 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 80px;
+  }
+
+  .footer-brand .footer-logo {
+    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-size: 32px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    margin-bottom: 16px;
+  }
+
+  .footer-brand .footer-tagline {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--concrete);
+    line-height: 1.6;
+    max-width: 280px;
+  }
+
+  .footer-col-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--concrete);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--warm-white); }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-copy {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: rgba(163,160,153,0.3);
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-socials a {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--concrete);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-socials a:hover { color: var(--warm-white); }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 1024px) {
+    .editorial { grid-template-columns: 1fr; }
+    .editorial-content { padding: 64px 48px; }
+    .trust { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 0 24px 60px; }
+    .hero-bottom { flex-direction: column; align-items: flex-start; }
+    .products { padding: 0 24px 120px; }
+    .product-grid { grid-template-columns: 1fr; }
+    .editorial-content { padding: 48px 24px; }
+    .trust { padding: 48px 24px; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .email-section { padding: 80px 24px; }
+    .email-form { flex-direction: column; }
+    .email-form button { width: 100%; }
+    .footer { padding: 48px 24px 32px; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .hero { margin-top: 92px; }
+  }
+
+  /* ========== LA MAP BACKGROUND ========== */
+  .map-container {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .map-container.interactive { pointer-events: none; }
+  .map-container.interactive svg { pointer-events: auto; cursor: crosshair; }
+  .map-container svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  .hero { position: relative; }
+  .marquee-divider { position: relative; }
+  .statement { position: relative; }
+  .trust { position: relative; }
+  .editorial-content { position: relative; overflow: hidden; }
+  .footer { position: relative; overflow: hidden; }
+
+  .hero-bg { z-index: 1; }
+  .hero-content { z-index: 3; }
+  .scroll-hint { z-index: 3; }
+</style>
+
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">
+  <div class="announce-track">
+    <div class="announce-item"><span>Drop 001</span> — The Crenshaw Hoodie + The 110 Cargo — Now Live</div>
+    <div class="announce-item">Free Shipping on Orders Over $150</div>
+    <div class="announce-item"><span>Drop 001</span> — The Crenshaw Hoodie + The 110 Cargo — Now Live</div>
+    <div class="announce-item">Free Shipping on Orders Over $150</div>
+    <div class="announce-item"><span>Drop 001</span> — The Crenshaw Hoodie + The 110 Cargo — Now Live</div>
+    <div class="announce-item">Free Shipping on Orders Over $150</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">Southbound</a>
+  <div class="nav-links">
+    <a href="#shop">Shop</a>
+    <a href="#story">Story</a>
+    <a href="#lookbook">Lookbook</a>
+  </div>
+  <a href="#cart" class="nav-cart">
+    Cart (0)
+    <span class="cart-dot"></span>
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img class="hero-image" src="hero.png" alt="Rider on motorcycle cruising through LA at dusk">
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-label">Drop 001 / Los Angeles</div>
+    <h1 class="hero-title">The City Is<br>The Track<span class="title-accent">.</span></h1>
+    <div class="hero-bottom">
+      <p class="hero-desc">Premium streetwear born from LA's BikeLife culture. Two pieces. Limited run. When it's gone, it's gone.</p>
+      <a href="#shop" class="hero-cta">
+        <span>Shop Drop 001</span>
+        <span class="cta-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-divider">
+  <div class="marquee-track">
+    <div class="marquee-item">Ride Clean <span class="mq-dot"></span> Inglewood <span class="mq-dot"></span> Compton <span class="mq-dot"></span> Long Beach <span class="mq-dot"></span> East LA <span class="mq-dot"></span> Crenshaw <span class="mq-dot"></span></div>
+    <div class="marquee-item">Ride Clean <span class="mq-dot"></span> Inglewood <span class="mq-dot"></span> Compton <span class="mq-dot"></span> Long Beach <span class="mq-dot"></span> East LA <span class="mq-dot"></span> Crenshaw <span class="mq-dot"></span></div>
+  </div>
+</div>
+
+<!-- BRAND STATEMENT -->
+<section class="statement">
+  <div class="statement-inner reveal">
+    <p class="statement-text">Nothing out here was made for us.<br><em>So we made it ourselves.</em></p>
+    <span class="statement-attr">Southbound / Est. 2026 / Los Angeles</span>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="shop">
+  <div class="products-header reveal">
+    <div>
+      <div class="products-label">Drop 001</div>
+      <h2 class="products-title">The Collection</h2>
+    </div>
+    <a href="#" class="products-view-all">View All &rarr;</a>
+  </div>
+
+  <div class="product-grid">
+    <!-- PRODUCT 1: Crenshaw Hoodie -->
+    <div class="product-card reveal reveal-delay-1">
+      <div class="product-img-wrap">
+        <span class="product-badge">Drop 001</span>
+        <img class="product-img" src="Sweatshirt.png" alt="The Crenshaw Hoodie - Asphalt Black">
+        <div class="product-overlay">
+          <div class="product-sizes">
+            <button class="size-btn">S</button>
+            <button class="size-btn">M</button>
+            <button class="size-btn active">L</button>
+            <button class="size-btn">XL</button>
+            <button class="size-btn">XXL</button>
+          </div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">The Crenshaw Hoodie</div>
+        <div class="product-detail">380gsm French Terry / Asphalt Black</div>
+        <div class="product-price">$148</div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 2: The 110 Cargo -->
+    <div class="product-card reveal reveal-delay-2">
+      <div class="product-img-wrap">
+        <span class="product-badge">Drop 001</span>
+        <img class="product-img" src="cargo-pants.png" alt="The 110 Cargo - Asphalt Black">
+        <div class="product-overlay">
+          <div class="product-sizes">
+            <button class="size-btn">S</button>
+            <button class="size-btn">M</button>
+            <button class="size-btn active">L</button>
+            <button class="size-btn">XL</button>
+            <button class="size-btn">XXL</button>
+          </div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">The 110 Cargo</div>
+        <div class="product-detail">Heavyweight Ripstop / Articulated Knee / Asphalt Black</div>
+        <div class="product-price">$168</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDITORIAL: THE HOODIE -->
+<section class="editorial" id="story">
+  <div class="editorial-image">
+    <img src="editorial.png" alt="LA BikeLife crew editorial shot">
+  </div>
+  <div class="editorial-content">
+    <div class="editorial-label reveal">The Crenshaw Hoodie</div>
+    <h2 class="editorial-heading reveal reveal-delay-1">Clean On The Bike.<br>Clean Off It.</h2>
+    <p class="editorial-body reveal reveal-delay-2">380gsm french terry. Oversized fit. Ribbed cuffs built to stay put at 40mph. Small enough wordmark that only the people who need to know, know. Made for the ride, the meetup, and everything after.</p>
+    <a href="#" class="editorial-link reveal reveal-delay-3">
+      <span>Shop the Crenshaw</span>
+      <span>&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- EDITORIAL: THE CARGO (reversed) -->
+<section class="editorial">
+  <div class="editorial-content">
+    <div class="editorial-label reveal">The 110 Cargo</div>
+    <h2 class="editorial-heading reveal reveal-delay-1">No Trailer.<br>No Track.<br>Just the Block.</h2>
+    <p class="editorial-body reveal reveal-delay-2">Named after the freeway. Heavyweight ripstop. Articulated knees that actually move the way you ride. Zippered thigh pocket with an orange interior you'll only see if you look. Elastic cuffs that tuck clean into whatever you're lacing up.</p>
+    <a href="#" class="editorial-link reveal reveal-delay-3">
+      <span>Shop the 110</span>
+      <span>&rarr;</span>
+    </a>
+  </div>
+  <div class="editorial-image">
+    <img src="hero.png" alt="Rider cruising South LA streets">
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="trust-item reveal">
+    <div class="trust-number">380<span class="trust-accent">gsm</span></div>
+    <div class="trust-desc">Heavyweight French Terry</div>
+  </div>
+  <div class="trust-item reveal reveal-delay-1">
+    <div class="trust-number">LA<span class="trust-accent">.</span></div>
+    <div class="trust-desc">Designed in Los Angeles</div>
+  </div>
+  <div class="trust-item reveal reveal-delay-2">
+    <div class="trust-number">001</div>
+    <div class="trust-desc">Limited First Drop</div>
+  </div>
+  <div class="trust-item reveal reveal-delay-3">
+    <div class="trust-number">Free<span class="trust-accent">.</span></div>
+    <div class="trust-desc">Shipping Over $150</div>
+  </div>
+</div>
+
+<!-- EMAIL CAPTURE -->
+<section class="email-section">
+  <div class="email-label reveal">Early Access</div>
+  <h2 class="email-title reveal reveal-delay-1">Don't Sleep.</h2>
+  <p class="email-sub reveal reveal-delay-2">First to know. First to shop. Drop notifications and nothing else. No spam. No "Hey fam."</p>
+  <form class="email-form reveal reveal-delay-3" onsubmit="return false;">
+    <input type="email" placeholder="Your email" aria-label="Email address">
+    <button type="submit">Join</button>
+  </form>
+  <p class="email-fine reveal reveal-delay-4">Drop alerts only. Unsubscribe anytime. We don't sell your info.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Southbound</div>
+      <p class="footer-tagline">Premium streetwear for LA's BikeLife culture. From the culture. For the culture.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="#">The Crenshaw Hoodie</a></li>
+        <li><a href="#">The 110 Cargo</a></li>
+        <li><a href="#">All Products</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Brand</div>
+      <ul class="footer-links">
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Lookbook</a></li>
+        <li><a href="#">Style Guide</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Help</div>
+      <ul class="footer-links">
+        <li><a href="#">Sizing</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Southbound. All Rights Reserved. Ride Clean.</span>
+    <div class="footer-socials">
+      <a href="#">IG</a>
+      <a href="#">TK</a>
+      <a href="#">YT</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Lenis smooth scroll
+  const lenis = new Lenis({
+    duration: 1.0,
+    easing: function(t) { return 1 - Math.pow(1 - t, 3); },
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 1.5,
+    infinite: false,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Anchor link support with Lenis
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        lenis.scrollTo(target);
+      }
+    });
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // Size buttons
+  document.querySelectorAll('.product-sizes').forEach(group => {
+    group.querySelectorAll('.size-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        group.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  });
+</script>
+
+<!-- LA MAP BACKGROUND SYSTEM -->
+<script>
+(function() {
+  var MAP_SVG_NS = 'http://www.w3.org/2000/svg';
+
+  var freeways = [
+    { d: "M 480 0 Q 475 100 470 200 Q 465 300 460 400 Q 455 500 450 600 L 448 700", w: 2.5, o: 0.4 },
+    { d: "M 50 310 L 200 308 L 400 305 L 600 302 L 800 300 L 1000 298", w: 2.5, o: 0.4 },
+    { d: "M 580 80 L 585 200 Q 590 350 595 450 L 600 550 L 605 700", w: 2, o: 0.3 },
+    { d: "M 180 0 Q 200 150 220 300 Q 240 450 260 600 L 270 700", w: 2, o: 0.3 },
+    { d: "M 50 520 L 250 518 L 450 515 L 650 512 L 850 510 L 1000 508", w: 1.8, o: 0.25 },
+  ];
+
+  var boulevards = [
+    { d: "M 340 0 L 338 120 L 335 250 L 332 380 L 330 500 L 328 620 L 326 700", w: 1.2, o: 0.3 },
+    { d: "M 390 0 L 388 150 L 386 300 L 384 450 L 382 600 L 380 700", w: 0.8, o: 0.2 },
+    { d: "M 430 0 L 428 180 L 426 360 L 424 540 L 422 700", w: 0.8, o: 0.2 },
+    { d: "M 455 0 L 453 175 L 451 350 L 449 525 L 447 700", w: 0.8, o: 0.2 },
+    { d: "M 510 60 L 508 200 L 506 350 L 504 500 L 502 650", w: 0.8, o: 0.2 },
+    { d: "M 530 100 L 528 250 L 526 400 L 524 550 L 522 700", w: 0.6, o: 0.15 },
+    { d: "M 260 0 L 258 175 L 256 350 L 254 525 L 252 700", w: 0.7, o: 0.18 },
+    { d: "M 300 0 L 298 200 L 296 400 L 294 600 L 292 700", w: 0.7, o: 0.18 },
+    { d: "M 650 80 L 700 100 L 780 130 L 860 155 L 950 180", w: 1, o: 0.25 },
+  ];
+
+  var ewStreets = [
+    { d: "M 50 380 L 250 378 L 450 375 L 650 372 L 850 370 L 1000 368", w: 1.2, o: 0.3 },
+    { d: "M 100 330 L 300 328 L 500 325 L 700 322 L 900 320", w: 0.8, o: 0.2 },
+    { d: "M 80 260 L 280 258 L 480 255 L 680 252 L 880 250", w: 0.8, o: 0.2 },
+    { d: "M 100 200 L 300 198 L 500 196 L 700 194 L 900 192", w: 0.8, o: 0.2 },
+    { d: "M 90 230 L 290 228 L 490 226 L 690 224 L 890 222", w: 0.7, o: 0.18 },
+    { d: "M 100 440 L 300 438 L 500 436 L 700 434 L 900 432", w: 0.8, o: 0.2 },
+    { d: "M 120 475 L 320 473 L 520 471 L 720 469", w: 0.8, o: 0.2 },
+    { d: "M 80 550 L 280 548 L 480 546 L 680 544 L 880 542", w: 0.7, o: 0.15 },
+    { d: "M 150 140 L 350 138 L 550 136 L 750 134", w: 0.7, o: 0.15 },
+    { d: "M 200 170 L 400 168 L 600 166 L 800 164", w: 0.6, o: 0.12 },
+    { d: "M 300 640 L 450 638 L 600 635 L 750 632 L 900 630", w: 0.8, o: 0.2 },
+  ];
+
+  var litFreeways = [
+    { d: "M 480 0 Q 475 100 470 200 Q 465 300 460 400 Q 455 500 450 600 L 448 700", w: 3, o: 0.9, c: "#FFF" },
+    { d: "M 50 310 L 200 308 L 400 305 L 600 302 L 800 300 L 1000 298", w: 3, o: 0.9, c: "#FFF" },
+    { d: "M 580 80 L 585 200 Q 590 350 595 450 L 600 550 L 605 700", w: 2.5, o: 0.8, c: "#FFF" },
+    { d: "M 180 0 Q 200 150 220 300 Q 240 450 260 600 L 270 700", w: 2.5, o: 0.8, c: "#FFF" },
+    { d: "M 50 520 L 250 518 L 450 515 L 650 512 L 850 510 L 1000 508", w: 2.2, o: 0.7, c: "#FFF" },
+  ];
+
+  var litBoulevards = [
+    { d: "M 340 0 L 338 120 L 335 250 L 332 380 L 330 500 L 328 620 L 326 700", w: 2, o: 0.9, c: "#D4612A" },
+    { d: "M 390 0 L 388 150 L 386 300 L 384 450 L 382 600 L 380 700", w: 1.5, o: 0.7, c: "#FFF" },
+    { d: "M 430 0 L 428 180 L 426 360 L 424 540 L 422 700", w: 1.5, o: 0.7, c: "#FFF" },
+    { d: "M 455 0 L 453 175 L 451 350 L 449 525 L 447 700", w: 1.5, o: 0.7, c: "#FFF" },
+    { d: "M 510 60 L 508 200 L 506 350 L 504 500 L 502 650", w: 1.5, o: 0.7, c: "#FFF" },
+    { d: "M 260 0 L 258 175 L 256 350 L 254 525 L 252 700", w: 1.2, o: 0.6, c: "#FFF" },
+    { d: "M 300 0 L 298 200 L 296 400 L 294 600 L 292 700", w: 1.2, o: 0.6, c: "#FFF" },
+    { d: "M 650 80 L 700 100 L 780 130 L 860 155 L 950 180", w: 1.8, o: 0.9, c: "#D4612A" },
+  ];
+
+  var litEWStreets = [
+    { d: "M 50 380 L 250 378 L 450 375 L 650 372 L 850 370 L 1000 368", w: 2, o: 0.9, c: "#D4612A" },
+    { d: "M 100 330 L 300 328 L 500 325 L 700 322 L 900 320", w: 1.5, o: 0.7, c: "#FFF" },
+    { d: "M 80 260 L 280 258 L 480 255 L 680 252 L 880 250", w: 1.5, o: 0.7, c: "#FFF" },
+    { d: "M 100 200 L 300 198 L 500 196 L 700 194 L 900 192", w: 1.5, o: 0.7, c: "#FFF" },
+    { d: "M 100 440 L 300 438 L 500 436 L 700 434 L 900 432", w: 1.5, o: 0.7, c: "#FFF" },
+    { d: "M 120 475 L 320 473 L 520 471 L 720 469", w: 1.5, o: 0.7, c: "#FFF" },
+    { d: "M 300 640 L 450 638 L 600 635 L 750 632 L 900 630", w: 1.5, o: 0.7, c: "#FFF" },
+    { d: "M 150 140 L 350 138 L 550 136 L 750 134", w: 1.2, o: 0.6, c: "#FFF" },
+  ];
+
+  var streetLabels = [
+    { x: 485, y: 55, t: "I-110", s: 9, c: "#FFF", o: 0.9, b: true },
+    { x: 820, y: 295, t: "I-105", s: 9, c: "#FFF", o: 0.9, b: true },
+    { x: 608, y: 170, t: "I-710", s: 8, c: "#FFF", o: 0.8 },
+    { x: 195, y: 95, t: "I-405", s: 8, c: "#FFF", o: 0.8 },
+    { x: 700, y: 506, t: "SR-91", s: 8, c: "#FFF", o: 0.7 },
+    { x: 305, y: 18, t: "CRENSHAW BLVD", s: 8, c: "#D4612A", o: 1, b: true },
+    { x: 65, y: 374, t: "IMPERIAL HWY", s: 8, c: "#D4612A", o: 1, b: true },
+    { x: 780, y: 122, t: "WHITTIER BLVD", s: 8, c: "#D4612A", o: 1, b: true },
+    { x: 392, y: 140, t: "WESTERN AVE", s: 7, c: "#FFF", o: 0.7 },
+    { x: 433, y: 250, t: "VERMONT", s: 7, c: "#FFF", o: 0.7 },
+    { x: 513, y: 280, t: "CENTRAL AVE", s: 7, c: "#FFF", o: 0.7 },
+    { x: 235, y: 180, t: "PRAIRIE", s: 7, c: "#FFF", o: 0.6 },
+    { x: 533, y: 430, t: "AVALON", s: 7, c: "#FFF", o: 0.6 },
+    { x: 115, y: 325, t: "CENTURY BLVD", s: 7, c: "#FFF", o: 0.7 },
+    { x: 95, y: 255, t: "MANCHESTER", s: 7, c: "#FFF", o: 0.7 },
+    { x: 700, y: 189, t: "SLAUSON AVE", s: 7, c: "#FFF", o: 0.7 },
+    { x: 600, y: 219, t: "FLORENCE", s: 7, c: "#FFF", o: 0.6 },
+    { x: 110, y: 435, t: "ROSECRANS", s: 7, c: "#FFF", o: 0.7 },
+    { x: 540, y: 466, t: "COMPTON BLVD", s: 7, c: "#FFF", o: 0.7 },
+    { x: 650, y: 628, t: "OCEAN BLVD", s: 7, c: "#FFF", o: 0.7 },
+    { x: 550, y: 131, t: "MLK JR BLVD", s: 7, c: "#FFF", o: 0.6 },
+  ];
+
+  var neighborhoods = [
+    { name: "INGLEWOOD", sub: "The Wood", x: 270, y: 285, r: 55 },
+    { name: "COMPTON", sub: "Hub City", x: 470, y: 465, r: 55 },
+    { name: "WATTS", sub: "The Grape Street", x: 500, y: 370, r: 40 },
+    { name: "CRENSHAW", sub: "The Shaw", x: 340, y: 190, r: 45 },
+    { name: "EAST LA", sub: "El Este", x: 780, y: 140, r: 50 },
+    { name: "LONG BEACH", sub: "The LBC", x: 550, y: 610, r: 55 },
+    { name: "SOUTH CENTRAL", sub: "", x: 445, y: 228, r: 40 },
+  ];
+
+  var routePath = "M 340 120 L 338 190 Q 320 240 270 285 Q 300 340 350 380 L 400 420 Q 440 450 470 465 Q 490 500 520 550 L 550 610 Q 560 580 560 540 Q 540 480 500 370 Q 550 300 620 220 Q 680 170 780 140";
+
+  var riderPaths = [
+    { d: "M 340 0 L 338 120 L 335 250 L 332 380 L 330 500 L 328 620 L 326 700", dur: "10s", r: 2.5, begin: "0s" },
+    { d: "M 50 380 L 250 378 L 450 375 L 650 372 L 850 370 L 1000 368", dur: "14s", r: 2.5, begin: "2s" },
+    { d: "M 480 0 Q 475 100 470 200 Q 465 300 460 400 Q 455 500 450 600 L 448 700", dur: "8s", r: 3, begin: "1s" },
+    { d: "M 100 330 L 300 328 L 500 325 L 700 322 L 900 320", dur: "12s", r: 2, begin: "3s" },
+    { d: "M 650 80 L 700 100 L 780 130 L 860 155 L 950 180", dur: "9s", r: 2, begin: "4s" },
+    { d: "M 580 80 L 585 200 Q 590 350 595 450 L 600 550 L 605 700", dur: "11s", r: 2.5, begin: "0.5s" },
+    { d: "M 100 440 L 300 438 L 500 436 L 700 434 L 900 432", dur: "13s", r: 2, begin: "5s" },
+    { d: "M 80 260 L 280 258 L 480 255 L 680 252 L 880 250", dur: "15s", r: 2, begin: "2.5s" },
+    { d: "M 448 700 L 450 600 Q 455 500 460 400 Q 465 300 470 200 Q 475 100 480 0", dur: "9s", r: 2, begin: "6s" },
+    { d: "M 100 200 L 300 198 L 500 196 L 700 194 L 900 192", dur: "16s", r: 2, begin: "3.5s" },
+  ];
+
+  var intersections = [
+    [340, 200], [340, 260], [340, 330], [340, 378],
+    [470, 305], [470, 375], [470, 436],
+    [510, 200], [510, 325],
+    [260, 260], [260, 378],
+    [430, 260], [430, 375],
+    [385, 305], [550, 515],
+  ];
+
+  var mapIdCounter = 0;
+
+  function createMapSVG(opacity, interactive) {
+    var id = mapIdCounter++;
+    var svg = '<svg viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;opacity:' + opacity + ';">';
+
+    svg += '<defs>';
+    svg += '<filter id="sg' + id + '"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+    svg += '<filter id="rg' + id + '"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+    svg += '<filter id="hg' + id + '"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+    svg += '<filter id="bg' + id + '"><feGaussianBlur stdDeviation="20" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+    svg += '<radialGradient id="hp' + id + '" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#D4612A" stop-opacity="0.4"/><stop offset="60%" stop-color="#D4612A" stop-opacity="0.1"/><stop offset="100%" stop-color="#D4612A" stop-opacity="0"/></radialGradient>';
+    svg += '<radialGradient id="ms' + id + '" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFF" stop-opacity="0.25"/><stop offset="40%" stop-color="#FFF" stop-opacity="0.08"/><stop offset="100%" stop-color="#FFF" stop-opacity="0"/></radialGradient>';
+    svg += '<mask id="sm' + id + '"><rect width="1000" height="700" fill="#333"/><circle class="spot-circle" cx="-200" cy="-200" r="180" fill="white"><animate attributeName="r" values="175;185;175" dur="2s" repeatCount="indefinite"/></circle></mask>';
+    svg += '</defs>';
+
+    svg += '<g opacity="0.3">';
+    freeways.forEach(function(s) { svg += '<path d="' + s.d + '" fill="none" stroke="#FFF" stroke-width="' + s.w + '" stroke-opacity="' + s.o + '"/>'; });
+    boulevards.forEach(function(s) { svg += '<path d="' + s.d + '" fill="none" stroke="#FFF" stroke-width="' + s.w + '" stroke-opacity="' + s.o + '"/>'; });
+    ewStreets.forEach(function(s) { svg += '<path d="' + s.d + '" fill="none" stroke="#FFF" stroke-width="' + s.w + '" stroke-opacity="' + s.o + '"/>'; });
+    for (var i = 0; i < 18; i++) { svg += '<line x1="' + (120 + i*45) + '" y1="0" x2="' + (118 + i*45) + '" y2="700" stroke="#FFF" stroke-width="0.25" stroke-opacity="0.3"/>'; }
+    for (var i = 0; i < 14; i++) { svg += '<line x1="50" y1="' + (60 + i*45) + '" x2="950" y2="' + (58 + i*45) + '" stroke="#FFF" stroke-width="0.25" stroke-opacity="0.3"/>'; }
+    svg += '</g>';
+
+    svg += '<g class="lit-layer" mask="url(#sm' + id + ')" style="display:none">';
+    litFreeways.forEach(function(s) { svg += '<path d="' + s.d + '" fill="none" stroke="' + s.c + '" stroke-width="' + s.w + '" stroke-opacity="' + s.o + '"/>'; });
+    litBoulevards.forEach(function(s) { svg += '<path d="' + s.d + '" fill="none" stroke="' + s.c + '" stroke-width="' + s.w + '" stroke-opacity="' + s.o + '"/>'; });
+    litEWStreets.forEach(function(s) { svg += '<path d="' + s.d + '" fill="none" stroke="' + s.c + '" stroke-width="' + s.w + '" stroke-opacity="' + s.o + '"/>'; });
+    streetLabels.forEach(function(l) { svg += '<text x="' + l.x + '" y="' + l.y + '" fill="' + l.c + '" font-size="' + l.s + '" font-family="\'Courier New\',monospace" opacity="' + l.o + '" letter-spacing="1.5"' + (l.b ? ' font-weight="bold"' : '') + '>' + l.t + '</text>'; });
+    for (var i = 0; i < 18; i++) { svg += '<line x1="' + (120 + i*45) + '" y1="0" x2="' + (118 + i*45) + '" y2="700" stroke="#FFF" stroke-width="0.4" stroke-opacity="0.5"/>'; }
+    for (var i = 0; i < 14; i++) { svg += '<line x1="50" y1="' + (60 + i*45) + '" x2="950" y2="' + (58 + i*45) + '" stroke="#FFF" stroke-width="0.4" stroke-opacity="0.5"/>'; }
+    svg += '</g>';
+
+    svg += '<circle class="mouse-glow" cx="-200" cy="-200" r="160" fill="url(#ms' + id + ')" style="display:none;pointer-events:none"/>';
+
+    svg += '<g>';
+    neighborhoods.forEach(function(n, i) {
+      svg += '<circle cx="' + n.x + '" cy="' + n.y + '" r="' + n.r + '" fill="url(#hp' + id + ')" filter="url(#hg' + id + ')" opacity="0.3"><animate attributeName="r" values="' + (n.r-5) + ';' + (n.r+5) + ';' + (n.r-5) + '" dur="' + (6+i) + 's" repeatCount="indefinite"/></circle>';
+      svg += '<circle class="hood-ring" data-nx="' + n.x + '" data-ny="' + n.y + '" cx="' + n.x + '" cy="' + n.y + '" r="' + (n.r+20) + '" fill="none" stroke="#D4612A" stroke-width="1" opacity="0" filter="url(#bg' + id + ')"/>';
+      svg += '<text class="hood-name" data-nx="' + n.x + '" data-ny="' + n.y + '" x="' + n.x + '" y="' + (n.y-4) + '" text-anchor="middle" fill="#D4612A" font-size="10" font-family="\'Courier New\',monospace" letter-spacing="3" font-weight="bold" opacity="0.35">' + n.name + '</text>';
+      if (n.sub) {
+        svg += '<text class="hood-sub" data-nx="' + n.x + '" data-ny="' + n.y + '" x="' + n.x + '" y="' + (n.y+14) + '" text-anchor="middle" fill="#F5F0EB" font-size="7" font-family="\'Courier New\',monospace" letter-spacing="2" opacity="0">' + n.sub + '</text>';
+      }
+    });
+    svg += '</g>';
+
+    svg += '<path class="route-path" d="' + routePath + '" fill="none" stroke="#D4612A" stroke-width="2.5" stroke-linecap="round" filter="url(#rg' + id + ')" stroke-dasharray="2000" stroke-dashoffset="2000" style="transition:stroke-dashoffset 0.05s linear"/>';
+    svg += '<path class="route-glow" d="' + routePath + '" fill="none" stroke="#D4612A" stroke-width="8" stroke-linecap="round" opacity="0.12" filter="url(#rg' + id + ')" stroke-dasharray="2000" stroke-dashoffset="2000" style="transition:stroke-dashoffset 0.05s linear"/>';
+
+    riderPaths.forEach(function(rp) {
+      svg += '<circle r="' + rp.r + '" fill="#D4612A" filter="url(#sg' + id + ')"><animateMotion dur="' + rp.dur + '" repeatCount="indefinite" begin="' + rp.begin + '" path="' + rp.d + '"/></circle>';
+    });
+
+    intersections.forEach(function(p, i) {
+      svg += '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="1.5" fill="#D4612A"><animate attributeName="opacity" values="0;0.5;0" dur="' + (2.5 + (i%5)*0.8) + 's" repeatCount="indefinite" begin="' + (i*0.4) + 's"/><animate attributeName="r" values="1;3;1" dur="' + (2.5 + (i%5)*0.8) + 's" repeatCount="indefinite" begin="' + (i*0.4) + 's"/></circle>';
+    });
+
+    svg += '</svg>';
+    return svg;
+  }
+
+  var mapSections = [
+    { sel: '.hero', opacity: 0.2, interactive: true },
+    { sel: '.marquee-divider', opacity: 0.1, interactive: false },
+    { sel: '.statement', opacity: 0.2, interactive: true },
+    { sel: '.trust', opacity: 0.1, interactive: false },
+    { sel: '.footer', opacity: 0.1, interactive: false },
+  ];
+
+  var editorials = document.querySelectorAll('.editorial-content');
+
+  mapSections.forEach(function(cfg) {
+    var el = document.querySelector(cfg.sel);
+    if (!el) return;
+    var container = document.createElement('div');
+    container.className = 'map-container' + (cfg.interactive ? ' interactive' : '');
+    container.innerHTML = createMapSVG(cfg.opacity, cfg.interactive);
+    el.insertBefore(container, el.firstChild);
+  });
+
+  editorials.forEach(function(el) {
+    var container = document.createElement('div');
+    container.className = 'map-container interactive';
+    container.innerHTML = createMapSVG(0.3, true);
+    el.insertBefore(container, el.firstChild);
+  });
+
+  document.querySelectorAll('.map-container.interactive').forEach(function(container) {
+    var svg = container.querySelector('svg');
+    var spotCircle = svg.querySelector('.spot-circle');
+    var litLayer = svg.querySelector('.lit-layer');
+    var mouseGlow = svg.querySelector('.mouse-glow');
+    var hoodNames = svg.querySelectorAll('.hood-name');
+    var hoodSubs = svg.querySelectorAll('.hood-sub');
+    var hoodRings = svg.querySelectorAll('.hood-ring');
+
+    container.addEventListener('mousemove', function(e) {
+      var rect = svg.getBoundingClientRect();
+      var mx = ((e.clientX - rect.left) / rect.width) * 1000;
+      var my = ((e.clientY - rect.top) / rect.height) * 700;
+
+      litLayer.style.display = '';
+      mouseGlow.style.display = '';
+      spotCircle.setAttribute('cx', mx);
+      spotCircle.setAttribute('cy', my);
+      mouseGlow.setAttribute('cx', mx);
+      mouseGlow.setAttribute('cy', my);
+
+      hoodNames.forEach(function(txt) {
+        var nx = parseFloat(txt.getAttribute('data-nx'));
+        var ny = parseFloat(txt.getAttribute('data-ny'));
+        var dist = Math.sqrt(Math.pow(mx - nx, 2) + Math.pow(my - ny, 2));
+        var prox = Math.max(0, 1 - dist / 200);
+        var isLit = prox > 0.2;
+        txt.setAttribute('opacity', isLit ? (0.35 + prox * 0.65) : 0.35);
+        txt.setAttribute('font-size', isLit ? '13' : '10');
+      });
+      hoodSubs.forEach(function(txt) {
+        var nx = parseFloat(txt.getAttribute('data-nx'));
+        var ny = parseFloat(txt.getAttribute('data-ny'));
+        var dist = Math.sqrt(Math.pow(mx - nx, 2) + Math.pow(my - ny, 2));
+        var prox = Math.max(0, 1 - dist / 200);
+        txt.setAttribute('opacity', prox > 0.2 ? prox * 0.6 : 0);
+      });
+      hoodRings.forEach(function(ring) {
+        var nx = parseFloat(ring.getAttribute('data-nx'));
+        var ny = parseFloat(ring.getAttribute('data-ny'));
+        var dist = Math.sqrt(Math.pow(mx - nx, 2) + Math.pow(my - ny, 2));
+        var prox = Math.max(0, 1 - dist / 200);
+        ring.setAttribute('opacity', prox > 0.2 ? prox * 0.4 : 0);
+      });
+    });
+
+    container.addEventListener('mouseleave', function() {
+      litLayer.style.display = 'none';
+      mouseGlow.style.display = 'none';
+      hoodNames.forEach(function(txt) { txt.setAttribute('opacity', '0.35'); txt.setAttribute('font-size', '10'); });
+      hoodSubs.forEach(function(txt) { txt.setAttribute('opacity', '0'); });
+      hoodRings.forEach(function(ring) { ring.setAttribute('opacity', '0'); });
+    });
+  });
+
+  function updateRouteProgress() {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? Math.min(1, Math.max(0, scrollTop / docHeight)) : 0;
+
+    document.querySelectorAll('.route-path, .route-glow').forEach(function(path) {
+      var len = 2000;
+      try { len = path.getTotalLength() || 2000; } catch(e) {}
+      path.setAttribute('stroke-dasharray', len);
+      path.setAttribute('stroke-dashoffset', len * (1 - progress));
+    });
+  }
+
+  window.addEventListener('scroll', updateRouteProgress, { passive: true });
+  if (typeof lenis !== 'undefined') {
+    lenis.on('scroll', updateRouteProgress);
+  }
+  updateRouteProgress();
+
+})();
+</script>
+
+</body>
+</html>
