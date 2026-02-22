@@ -239,7 +239,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 0 48px 120px;
+    padding: 0 48px 160px;
     overflow: hidden;
     margin-top: 100px;
   }
@@ -314,9 +314,11 @@
     align-items: flex-end;
     justify-content: space-between;
     gap: 48px;
+    margin-bottom: 24px;
   }
 
-  .hero-left {
+  .hero-lower .hero-title {
+    margin-bottom: 0;
     flex: 1;
   }
 
@@ -1281,10 +1283,7 @@
   <div class="hero-content">
     <div class="hero-label">Drop 001 / Los Angeles</div>
     <div class="hero-lower">
-      <div class="hero-left">
-        <h1 class="hero-title">The Street<br>Is Our Stage<span class="title-accent">.</span></h1>
-        <p class="hero-desc">Premium streetwear born from LA's BikeLife culture. Two pieces. Limited run. When it's gone, it's gone.</p>
-      </div>
+      <h1 class="hero-title">The Street<br>Is Our Stage<span class="title-accent">.</span></h1>
       <div class="hero-bottom">
         <a href="#shop" class="hero-cta">
           <span>Shop Drop 001</span>
@@ -1292,6 +1291,7 @@
         </a>
       </div>
     </div>
+    <p class="hero-desc">Premium streetwear born from LA's BikeLife culture. Two pieces. Limited run. When it's gone, it's gone.</p>
   </div>
 
   <div class="scroll-hint">
