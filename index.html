@@ -147,6 +147,12 @@
     text-decoration: none;
   }
 
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
   .nav-links {
     display: flex;
     align-items: center;
@@ -1255,15 +1261,17 @@
 <!-- NAV -->
 <nav class="nav" id="nav">
   <a href="/" class="nav-logo">Southbound</a>
-  <div class="nav-links">
-    <a href="#shop">Shop</a>
-    <a href="#story">Story</a>
-    <a href="#lookbook">Lookbook</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#shop">Shop</a>
+      <a href="#story">Story</a>
+      <a href="#lookbook">Lookbook</a>
+    </div>
+    <a href="#cart" class="nav-cart">
+      Cart (0)
+      <span class="cart-dot"></span>
+    </a>
   </div>
-  <a href="#cart" class="nav-cart">
-    Cart (0)
-    <span class="cart-dot"></span>
-  </a>
   <button class="nav-toggle" id="navToggle" aria-label="Menu">
     <span></span>
     <span></span>
