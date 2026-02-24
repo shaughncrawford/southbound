@@ -532,8 +532,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
-    max-width: 900px;
-    margin: 0 auto;
   }
 
   .product-card {
@@ -544,6 +542,7 @@
   .product-img-wrap {
     position: relative;
     aspect-ratio: 1/1;
+    max-height: calc(100vh - 300px);
     background: var(--surface-2);
     border: 1px solid var(--border);
     overflow: hidden;
