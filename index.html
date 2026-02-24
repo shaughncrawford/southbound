@@ -481,15 +481,15 @@
 
   /* ========== PRODUCTS ========== */
   .products {
-    padding: 0 48px 80px;
+    padding: 0 48px 40px;
   }
 
   .products-header {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    margin-bottom: 32px;
-    padding-bottom: 20px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
     border-bottom: 1px solid var(--border);
   }
 
@@ -499,12 +499,12 @@
     letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--orange);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   .products-title {
     font-family: 'Dharma Gothic E', 'Impact', sans-serif;
-    font-size: clamp(48px, 6vw, 80px);
+    font-size: clamp(40px, 5vw, 64px);
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -531,7 +531,9 @@
   .product-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   .product-card {
@@ -642,28 +644,28 @@
   }
 
   .product-info {
-    padding: 20px 0;
+    padding: 12px 0;
   }
 
   .product-name {
     font-family: 'Outfit', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     color: var(--warm-white);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
 
   .product-detail {
     font-family: 'Space Mono', monospace;
-    font-size: 11px;
+    font-size: 10px;
     color: var(--concrete);
     letter-spacing: 1px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
 
   .product-price {
     font-family: 'Outfit', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--warm-white);
   }
