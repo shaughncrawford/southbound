@@ -307,7 +307,7 @@
     text-transform: uppercase;
     line-height: 0.85;
     color: var(--warm-white);
-    margin-bottom: 32px;
+    margin-bottom: 0;
     animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
     opacity: 0;
     max-width: 100%;
@@ -317,23 +317,10 @@
     color: var(--orange);
   }
 
-  .hero-lower {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 48px;
-    margin-bottom: 24px;
-  }
-
-  .hero-lower .hero-title {
-    margin-bottom: 0;
-    flex: 1;
-  }
-
   .hero-bottom {
-    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
     opacity: 0;
-    flex-shrink: 0;
+    margin-top: 32px;
   }
 
   .hero-desc {
@@ -342,6 +329,9 @@
     color: var(--concrete);
     max-width: 420px;
     line-height: 1.7;
+    margin-top: 24px;
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    opacity: 0;
   }
 
   .hero-cta {
@@ -1294,16 +1284,14 @@
 
   <div class="hero-content">
     <div class="hero-label">Drop 001 / Los Angeles</div>
-    <div class="hero-lower">
-      <h1 class="hero-title">The Street<br>Is Our Stage<span class="title-accent">.</span></h1>
-      <div class="hero-bottom">
-        <a href="#shop" class="hero-cta">
-          <span>Shop Drop 001</span>
-          <span class="cta-arrow">&rarr;</span>
-        </a>
-      </div>
-    </div>
+    <h1 class="hero-title">The Street<br>Is Our Stage<span class="title-accent">.</span></h1>
     <p class="hero-desc">Premium streetwear born from LA's BikeLife culture. Two pieces. Limited run. When it's gone, it's gone.</p>
+    <div class="hero-bottom">
+      <a href="#shop" class="hero-cta">
+        <span>Shop Drop 001</span>
+        <span class="cta-arrow">&rarr;</span>
+      </a>
+    </div>
   </div>
 
   <div class="scroll-hint">
