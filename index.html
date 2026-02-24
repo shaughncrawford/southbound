@@ -31,6 +31,7 @@
     --surface-2: #161616;
     --border: rgba(163,160,153,0.12);
     --border-hover: rgba(163,160,153,0.25);
+    --nav-height: 100px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -235,14 +236,14 @@
   /* ========== HERO ========== */
   .hero {
     position: relative;
-    height: calc(100vh - 100px);
+    height: calc(100vh - var(--nav-height));
     min-height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: 0 48px 48px;
     overflow: hidden;
-    margin-top: 100px;
+    margin-top: var(--nav-height);
   }
 
   .hero-bg {
@@ -1079,7 +1080,8 @@
     .nav-toggle { display: flex; }
     .mobile-menu { display: flex; }
 
-    .hero { padding: 0 20px 48px; margin-top: 92px; min-height: auto; height: calc(100vh - 92px); justify-content: flex-end; }
+    :root { --nav-height: 92px; }
+    .hero { padding: 0 20px 48px; }
     .hero-title { font-size: clamp(56px, 14vw, 120px); margin-bottom: 24px; letter-spacing: 0.02em; }
     .hero-label { font-size: 10px; letter-spacing: 3px; margin-bottom: 16px; }
     .hero-lower { flex-direction: column; align-items: flex-start; gap: 24px; }
@@ -1130,7 +1132,8 @@
     .nav { height: 56px; }
     .nav-logo { font-size: 22px; letter-spacing: 4px; }
 
-    .hero { padding: 0 16px 48px; min-height: auto; height: calc(100vh - 88px); margin-top: 88px; justify-content: flex-end; }
+    :root { --nav-height: 88px; }
+    .hero { padding: 0 16px 48px; }
     .hero-title { font-size: clamp(48px, 15vw, 80px); line-height: 0.82; margin-bottom: 20px; letter-spacing: 0.01em; }
     .hero-label { font-size: 9px; letter-spacing: 2px; }
     .hero-desc { font-size: 14px; line-height: 1.6; }
@@ -1190,7 +1193,8 @@
 
   /* Landscape phones */
   @media (max-height: 500px) and (orientation: landscape) {
-    .hero { min-height: auto; height: calc(100vh - 88px); padding-bottom: 48px; justify-content: flex-end; }
+    :root { --nav-height: 88px; }
+    .hero { padding-bottom: 48px; }
     .hero-title { font-size: clamp(40px, 10vh, 80px); }
     .statement { padding: 48px 20px; }
     .email-section { padding: 48px 20px; }
@@ -1199,7 +1203,7 @@
   /* Large screens */
   @media (min-width: 1440px) {
     .nav { padding: 0 80px; }
-    .hero { padding: 0 80px 48px; height: calc(100vh - 100px); justify-content: flex-end; }
+    .hero { padding: 0 80px 48px; }
     .products { padding: 0 80px 100px; }
     .editorial-content { padding: 100px 100px; }
     .statement { padding: 200px 80px; }
