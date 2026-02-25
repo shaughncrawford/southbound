@@ -45,7 +45,7 @@
   }
 
   #shop, #story {
-    scroll-margin-top: 140px;
+    scroll-margin-top: var(--nav-height);
   }
 
   body {
@@ -483,7 +483,10 @@
 
   /* ========== PRODUCTS ========== */
   .products {
-    padding: 0 48px 40px;
+    padding: 24px 48px 16px;
+    height: calc(100vh - var(--nav-height));
+    display: flex;
+    flex-direction: column;
   }
 
   .products-header {
@@ -534,16 +537,22 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
+    flex: 1;
+    min-height: 0;
   }
 
   .product-card {
     position: relative;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
   }
 
   .product-img-wrap {
     position: relative;
-    aspect-ratio: 3/4;
+    flex: 1;
+    min-height: 0;
     background: var(--surface-2);
     border: 1px solid var(--border);
     overflow: hidden;
@@ -1091,10 +1100,11 @@
     .statement-text { font-size: clamp(20px, 5vw, 32px); }
     .statement-attr { font-size: 9px; margin-top: 32px; }
 
-    .products { padding: 0 20px 80px; }
+    .products { padding: 0 20px 80px; height: auto; }
     .products-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 40px; }
     .products-title { font-size: clamp(40px, 10vw, 64px); letter-spacing: 0.02em; }
     .product-grid { grid-template-columns: 1fr; gap: 32px; }
+    .product-img-wrap { aspect-ratio: 3/4; flex: none; }
     .product-overlay { transform: translateY(0); opacity: 1; }
 
     .editorial-image { aspect-ratio: 1 / 1; }
@@ -1141,7 +1151,7 @@
     .statement { padding: 64px 16px; }
     .statement-text { font-size: clamp(18px, 5.5vw, 28px); line-height: 1.5; }
 
-    .products { padding: 0 16px 64px; }
+    .products { padding: 0 16px 64px; height: auto; }
     .products-label { font-size: 10px; letter-spacing: 3px; }
     .products-title { font-size: clamp(36px, 12vw, 56px); letter-spacing: 0.01em; }
     .product-info { padding: 16px 0; }
@@ -1200,7 +1210,7 @@
   @media (min-width: 1440px) {
     .nav { padding: 0 80px; }
     .hero { padding: 0 80px 48px; }
-    .products { padding: 0 80px 100px; }
+    .products { padding: 24px 80px 16px; }
     .editorial-content { padding: 100px 100px; }
     .statement { padding: 200px 80px; }
     .trust { padding: 100px 80px; }
@@ -1317,8 +1327,7 @@
 </section>
 
 <!-- PRODUCTS -->
-<div id="shop" style="height:0;margin-top:-140px;padding-top:140px;pointer-events:none;"></div>
-<section class="products">
+<section class="products" id="shop">
   <div class="products-header reveal">
     <div>
       <div class="products-label">Drop 001</div>
@@ -1384,8 +1393,7 @@
 </div>
 
 <!-- EDITORIAL: THE HOODIE -->
-<div id="story" style="height:0;margin-top:-140px;padding-top:140px;pointer-events:none;"></div>
-<section class="editorial">
+<section class="editorial" id="story">
   <div class="editorial-image">
     <img src="THE BLOCK2.png" alt="The Block – LA BikeLife crew editorial shot">
   </div>
@@ -1513,7 +1521,8 @@
       var target = document.querySelector(this.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        lenis.scrollTo(target);
+        var navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 100;
+        lenis.scrollTo(target, { offset: -navH });
       }
     });
   });
