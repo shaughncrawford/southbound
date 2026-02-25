@@ -41,6 +41,11 @@
     scrollbar-width: thin;
     scrollbar-color: var(--smoke) var(--surface);
     overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  #shop, #story {
+    scroll-margin-top: 140px;
   }
 
   body {
@@ -538,8 +543,7 @@
 
   .product-img-wrap {
     position: relative;
-    aspect-ratio: 1/1;
-    max-height: calc(100vh - 300px);
+    aspect-ratio: 3/4;
     background: var(--surface-2);
     border: 1px solid var(--border);
     overflow: hidden;
@@ -1313,7 +1317,8 @@
 </section>
 
 <!-- PRODUCTS -->
-<section class="products" id="shop">
+<div id="shop" style="height:0;margin-top:-140px;padding-top:140px;pointer-events:none;"></div>
+<section class="products">
   <div class="products-header reveal">
     <div>
       <div class="products-label">Drop 001</div>
@@ -1379,7 +1384,8 @@
 </div>
 
 <!-- EDITORIAL: THE HOODIE -->
-<section class="editorial" id="story">
+<div id="story" style="height:0;margin-top:-140px;padding-top:140px;pointer-events:none;"></div>
+<section class="editorial">
   <div class="editorial-image">
     <img src="THE BLOCK2.png" alt="The Block – LA BikeLife crew editorial shot">
   </div>
@@ -1501,7 +1507,7 @@
   }
   requestAnimationFrame(raf);
 
-  // Anchor link support with Lenis
+  // Anchor link smooth scroll via Lenis
   document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener('click', function(e) {
       var target = document.querySelector(this.getAttribute('href'));
