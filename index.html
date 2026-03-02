@@ -3,22 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOUTHB
-  OUND — Ride Clean</title>
-<meta property="og:title" content="SOUTHBOUND — The Street Is Our Stage.">
-<meta property="og:description" content="Premium streetwear born from LA's BikeLife culture. The street is our stage — limited first drop now live.">
+<title>SOUTHBOUND — The Street Is Our Stage</title>
+<meta name="description" content="Premium streetwear built for the riders who take over the streets. Drop 001 — The Crenshaw Hoodie and The 110 Cargo. Los Angeles.">
+<meta property="og:title" content="SOUTHBOUND — The Street Is Our Stage">
+<meta property="og:description" content="Premium streetwear built for the riders who take over the streets. Drop 001 — The Crenshaw Hoodie and The 110 Cargo. Los Angeles.">
 <meta property="og:image" content="/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SOUTHBOUND — The Street Is Our Stage.">
-<meta name="twitter:description" content="Premium streetwear born from LA's BikeLife culture. Drop 001 now live.">
+<meta name="twitter:title" content="SOUTHBOUND — The Street Is Our Stage">
+<meta name="twitter:description" content="Premium streetwear built for the riders who take over the streets. Drop 001 — The Crenshaw Hoodie and The 110 Cargo. Los Angeles.">
 <meta name="twitter:image" content="/og-image.png">
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
-  @import url('https://fonts.cdnfonts.com/css/dharma-gothic-e');
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
   :root {
     --asphalt: #1A1A1A;
@@ -53,6 +52,8 @@
     color: var(--warm-white);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    letter-spacing: 0.01em;
+    line-height: 1.6;
   }
 
   ::selection {
@@ -146,13 +147,14 @@
   }
 
   .nav-logo {
-    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
-    font-weight: 700;
-    font-size: 26px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: var(--warm-white);
+    display: flex;
+    align-items: center;
     text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 24px;
+    width: auto;
   }
 
   .nav-right {
@@ -238,9 +240,10 @@
   .announce-item {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
-    letter-spacing: 3px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--concrete);
+    line-height: 1.4;
     padding: 0 48px;
     flex-shrink: 0;
   }
@@ -302,20 +305,21 @@
   .hero-label {
     font-family: 'Space Mono', monospace;
     font-size: 11px;
-    letter-spacing: 4px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--orange);
+    line-height: 1.4;
     margin-bottom: 20px;
     animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .hero-title {
-    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
-    font-weight: 700;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
     font-size: clamp(60px, 10vw, 130px);
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
-    line-height: 0.85;
+    line-height: 1.15;
     color: var(--warm-white);
     margin-bottom: 0;
     animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
@@ -433,9 +437,10 @@
   }
 
   .marquee-item {
-    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
     font-size: 48px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
     color: rgba(245,240,235,0.06);
     padding: 0 48px;
@@ -481,9 +486,10 @@
   .statement-attr {
     font-family: 'Space Mono', monospace;
     font-size: 12px;
-    letter-spacing: 5px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--concrete);
+    line-height: 1.4;
     margin-top: 48px;
     display: block;
   }
@@ -508,19 +514,20 @@
   .products-label {
     font-family: 'Space Mono', monospace;
     font-size: 11px;
-    letter-spacing: 4px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--orange);
+    line-height: 1.4;
     margin-bottom: 8px;
   }
 
   .products-title {
-    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: clamp(40px, 5vw, 64px);
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-weight: 900;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
-    line-height: 0.9;
+    line-height: 1.15;
   }
 
   .products-view-all {
@@ -732,19 +739,20 @@
   .editorial-label {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
-    letter-spacing: 4px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--orange);
+    line-height: 1.4;
     margin-bottom: 24px;
   }
 
   .editorial-heading {
-    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: clamp(40px, 5vw, 64px);
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-weight: 900;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
-    line-height: 0.9;
+    line-height: 1.15;
     margin-bottom: 32px;
   }
 
@@ -792,10 +800,11 @@
   }
 
   .trust-number {
-    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
     font-size: 48px;
     color: var(--warm-white);
-    line-height: 1;
+    line-height: 1.15;
     margin-bottom: 8px;
   }
 
@@ -831,20 +840,21 @@
   .email-label {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
-    letter-spacing: 4px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--orange);
+    line-height: 1.4;
     margin-bottom: 20px;
     position: relative;
   }
 
   .email-title {
-    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: clamp(40px, 6vw, 72px);
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-weight: 900;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
-    line-height: 0.9;
+    line-height: 1.15;
     margin-bottom: 20px;
     position: relative;
   }
@@ -928,9 +938,10 @@
   }
 
   .footer-brand .footer-logo {
-    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
     font-size: 32px;
-    letter-spacing: 6px;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--warm-white);
     margin-bottom: 16px;
@@ -947,9 +958,10 @@
   .footer-col-title {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
-    letter-spacing: 3px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--warm-white);
+    line-height: 1.4;
     margin-bottom: 20px;
   }
 
@@ -1062,9 +1074,10 @@
   }
 
   .mobile-menu a {
-    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
     font-size: 48px;
-    letter-spacing: 6px;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--warm-white);
     text-decoration: none;
@@ -1145,7 +1158,7 @@
     .announce-item { font-size: 9px; letter-spacing: 2px; padding: 0 24px; }
 
     .nav { height: 56px; }
-    .nav-logo { font-size: 22px; letter-spacing: 4px; }
+    .nav-logo img { height: 20px; }
 
     :root { --nav-height: 88px; }
     .hero { padding: 0 16px 48px; }
@@ -1269,7 +1282,7 @@
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <a href="/" class="nav-logo">Southbound</a>
+  <a href="/" class="nav-logo"><img src="southbound-logo-solid-white.svg" alt="Southbound" height="24"></a>
   <div class="nav-right">
     <div class="nav-links">
       <a href="#shop">Shop</a>
@@ -1302,12 +1315,12 @@
   </div>
 
   <div class="hero-content">
-    <div class="hero-label">Drop 001 / Los Angeles</div>
-    <h1 class="hero-title">The Street<br>Is Our Stage<span class="title-accent">.</span></h1>
-    <p class="hero-desc">Premium streetwear born from LA's BikeLife culture. Two pieces. Limited run. When it's gone, it's gone.</p>
+    <div class="hero-label">DROP 001 / LOS ANGELES</div>
+    <h1 class="hero-title">THE STREET IS OUR STAGE<span class="title-accent">.</span></h1>
+    <p class="hero-desc">Premium streetwear built for the riders who take over the streets.</p>
     <div class="hero-bottom">
       <a href="#shop" class="hero-cta">
-        <span>Shop Drop 001</span>
+        <span>SHOP DROP 001</span>
         <span class="cta-arrow">&rarr;</span>
       </a>
     </div>
@@ -1322,16 +1335,16 @@
 <!-- MARQUEE -->
 <div class="marquee-divider">
   <div class="marquee-track">
-    <div class="marquee-item">Ride Clean <span class="mq-dot"></span> Inglewood <span class="mq-dot"></span> Compton <span class="mq-dot"></span> Long Beach <span class="mq-dot"></span> East LA <span class="mq-dot"></span> Crenshaw <span class="mq-dot"></span></div>
-    <div class="marquee-item">Ride Clean <span class="mq-dot"></span> Inglewood <span class="mq-dot"></span> Compton <span class="mq-dot"></span> Long Beach <span class="mq-dot"></span> East LA <span class="mq-dot"></span> Crenshaw <span class="mq-dot"></span></div>
+    <div class="marquee-item">Inglewood <span class="mq-dot"></span> Compton <span class="mq-dot"></span> Long Beach <span class="mq-dot"></span> East LA <span class="mq-dot"></span> Crenshaw <span class="mq-dot"></span></div>
+    <div class="marquee-item">Inglewood <span class="mq-dot"></span> Compton <span class="mq-dot"></span> Long Beach <span class="mq-dot"></span> East LA <span class="mq-dot"></span> Crenshaw <span class="mq-dot"></span></div>
   </div>
 </div>
 
 <!-- BRAND STATEMENT -->
 <section class="statement">
   <div class="statement-inner reveal">
-    <p class="statement-text">Nothing out here was made for us.<br><em>So we made it ourselves.</em></p>
-    <span class="statement-attr">Southbound / Est. 2026 / Los Angeles</span>
+    <p class="statement-text">They see outlaws.<br><em>We see freedom.</em></p>
+    <span class="statement-attr">Southbound / Est. 2026</span>
   </div>
 </section>
 
@@ -1396,8 +1409,8 @@
 <!-- MARQUEE DIVIDER 2 -->
 <div class="marquee-divider">
   <div class="marquee-track">
-    <div class="marquee-item">Ride Clean <span class="mq-dot"></span> Inglewood <span class="mq-dot"></span> Compton <span class="mq-dot"></span> Long Beach <span class="mq-dot"></span> East LA <span class="mq-dot"></span> Crenshaw <span class="mq-dot"></span></div>
-    <div class="marquee-item">Ride Clean <span class="mq-dot"></span> Inglewood <span class="mq-dot"></span> Compton <span class="mq-dot"></span> Long Beach <span class="mq-dot"></span> East LA <span class="mq-dot"></span> Crenshaw <span class="mq-dot"></span></div>
+    <div class="marquee-item">Inglewood <span class="mq-dot"></span> Compton <span class="mq-dot"></span> Long Beach <span class="mq-dot"></span> East LA <span class="mq-dot"></span> Crenshaw <span class="mq-dot"></span></div>
+    <div class="marquee-item">Inglewood <span class="mq-dot"></span> Compton <span class="mq-dot"></span> Long Beach <span class="mq-dot"></span> East LA <span class="mq-dot"></span> Crenshaw <span class="mq-dot"></span></div>
   </div>
 </div>
 
@@ -1408,7 +1421,7 @@
   </div>
   <div class="editorial-content">
     <div class="editorial-label reveal">The Crenshaw Hoodie</div>
-    <h2 class="editorial-heading reveal reveal-delay-1">THE STREETS NEVER<br>LOOKED THIS GOOD.</h2>
+    <h2 class="editorial-heading reveal reveal-delay-1">The Streets Never Looked This Good.</h2>
     <p class="editorial-body reveal reveal-delay-2">380gsm french terry, oversized fit, ribbed cuffs built to stay put at any speed. All-over screen printed — the map doesn't fade, peel, or apologize. Made for the ride, the meetup, and everything after.</p>
     <a href="#shop" class="editorial-link reveal reveal-delay-3">
       <span>Shop the Crenshaw</span>
@@ -1421,7 +1434,7 @@
 <section class="editorial">
   <div class="editorial-content">
     <div class="editorial-label reveal">The 110 Cargo</div>
-    <h2 class="editorial-heading reveal reveal-delay-1">BUILT FOR THE LEAN.<br>WORN FOR THE LOOK.</h2>
+    <h2 class="editorial-heading reveal reveal-delay-1">Built for the Lean. Worn for the Look.</h2>
     <p class="editorial-body reveal reveal-delay-2">Named after the 110 freeway. Heavyweight ripstop. Articulated knees that actually move the way you ride. Zippered thigh pocket with an orange pull you'll only see if you look. Elastic cuffs that tuck clean into whatever you're lacing up.</p>
     <a href="#shop" class="editorial-link reveal reveal-delay-3">
       <span>Shop the 110</span>
@@ -1453,12 +1466,12 @@
 <section class="email-section">
   <div class="email-label reveal">Early Access</div>
   <h2 class="email-title reveal reveal-delay-1">Don't Sleep.</h2>
-  <p class="email-sub reveal reveal-delay-2">First to know. First to shop. Drop notifications and nothing else. No spam. No "Hey fam."</p>
+  <p class="email-sub reveal reveal-delay-2">First access to drops, restocks, and nothing else.</p>
   <form class="email-form reveal reveal-delay-3" onsubmit="return false;">
     <input type="email" placeholder="Your email" aria-label="Email address">
     <button type="submit">Join</button>
   </form>
-  <p class="email-fine reveal reveal-delay-4">Drop alerts only. Unsubscribe anytime. We don't sell your info.</p>
+  <p class="email-fine reveal reveal-delay-4">No spam. No 'Hey fam.' Just the drop.</p>
 </section>
 
 <!-- FOOTER -->
@@ -1494,7 +1507,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">&copy; 2026 Southbound. All Rights Reserved. Ride Clean.</span>
+    <span class="footer-copy">&copy; 2026 Southbound. All Rights Reserved.</span>
     <div class="footer-socials">
       <a href="#">IG</a>
       <a href="#">TK</a>
