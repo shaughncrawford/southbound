@@ -545,7 +545,7 @@
 
   .product-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, calc(100vh - 300px)));
     gap: clamp(24px, 4vw, 64px);
   }
 
@@ -556,10 +556,7 @@
 
   .product-img-wrap {
     position: relative;
-    width: 100%;
     aspect-ratio: 1 / 1;
-    max-height: calc(100vh - 300px);
-    max-width: calc(100vh - 300px);
     background: var(--surface-2);
     border: 1px solid var(--border);
     overflow: hidden;
