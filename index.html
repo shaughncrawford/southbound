@@ -922,8 +922,9 @@
 
   .footer-top {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 48px;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    gap: 80px;
     margin-bottom: 80px;
   }
 
@@ -1083,7 +1084,7 @@
     .editorial-image { aspect-ratio: 1 / 1; }
     .editorial-content { padding: 64px 48px; }
     .trust { grid-template-columns: repeat(2, 1fr); }
-    .footer-top { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: repeat(3, auto); gap: 48px; }
     .statement { padding: 120px 48px; }
   }
 
@@ -1132,7 +1133,7 @@
     .email-form button { width: 100%; padding: 16px; }
 
     .footer { padding: 48px 20px 32px; overflow: hidden; }
-    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .footer-top { grid-template-columns: repeat(3, auto); gap: 32px; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
     .footer-copy { word-break: break-word; }
     .footer-brand .footer-tagline { max-width: 100%; }
@@ -1464,10 +1465,6 @@
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-top">
-    <div class="footer-brand">
-      <div class="footer-logo">Southbound</div>
-
-    </div>
     <div>
       <div class="footer-col-title">Shop</div>
       <ul class="footer-links">
@@ -1495,11 +1492,7 @@
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">&copy; 2026 Southbound. All Rights Reserved.</span>
-    <div class="footer-socials">
-      <a href="#">IG</a>
-      <a href="#">TK</a>
-      <a href="#">YT</a>
-    </div>
+
   </div>
 </footer>
 
