@@ -313,7 +313,10 @@
     font-family: 'Dharma Gothic E', 'Impact', sans-serif;
     font-weight: 700;
     font-size: clamp(60px, 10vw, 130px);
-    letter-spacing: 0.03em;
+    letter-spacing: 0.01em;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
     text-transform: uppercase;
     line-height: 1.15;
     color: var(--warm-white);
@@ -518,7 +521,10 @@
     font-family: 'Dharma Gothic E', 'Impact', sans-serif;
     font-size: clamp(40px, 5vw, 64px);
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.01em;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
     text-transform: uppercase;
     line-height: 1.15;
   }
@@ -742,7 +748,10 @@
     font-family: 'Dharma Gothic E', 'Impact', sans-serif;
     font-size: clamp(40px, 5vw, 64px);
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.01em;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
     text-transform: uppercase;
     line-height: 1.15;
     margin-bottom: 32px;
@@ -842,7 +851,10 @@
     font-family: 'Dharma Gothic E', 'Impact', sans-serif;
     font-size: clamp(40px, 6vw, 72px);
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.01em;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
     text-transform: uppercase;
     line-height: 1.15;
     margin-bottom: 20px;
@@ -1096,7 +1108,7 @@
 
     :root { --nav-height: 92px; }
     .hero { padding: 0 20px 48px; }
-    .hero-title { font-size: clamp(56px, 14vw, 120px); margin-bottom: 24px; letter-spacing: 0.02em; }
+    .hero-title { font-size: clamp(56px, 14vw, 120px); margin-bottom: 24px; letter-spacing: 0.01em; }
     .hero-label { font-size: 10px; letter-spacing: 3px; margin-bottom: 16px; }
     .hero-lower { flex-direction: column; align-items: flex-start; gap: 24px; }
     .hero-desc { font-size: 15px; max-width: 100%; }
@@ -1111,21 +1123,21 @@
 
     .products { padding: 0 20px 80px; height: auto; }
     .products-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 40px; }
-    .products-title { font-size: clamp(40px, 10vw, 64px); letter-spacing: 0.02em; }
+    .products-title { font-size: clamp(40px, 10vw, 64px); letter-spacing: 0.01em; }
     .product-grid { grid-template-columns: 1fr; gap: 32px; }
     .product-img-wrap { aspect-ratio: 3/4; flex: none; }
     .product-overlay { transform: translateY(0); opacity: 1; }
 
     .editorial-image { aspect-ratio: 1 / 1; }
     .editorial-content { padding: 48px 20px; border-left: none; }
-    .editorial-heading { font-size: clamp(36px, 8vw, 56px); letter-spacing: 0.02em; }
+    .editorial-heading { font-size: clamp(36px, 8vw, 56px); letter-spacing: 0.01em; }
     .editorial-body { font-size: 15px; max-width: 100%; }
 
     .trust { padding: 48px 20px; grid-template-columns: 1fr 1fr; gap: 32px; }
     .trust-number { font-size: 40px; }
 
     .email-section { padding: 80px 20px; }
-    .email-title { font-size: clamp(36px, 8vw, 56px); letter-spacing: 0.02em; }
+    .email-title { font-size: clamp(36px, 8vw, 56px); letter-spacing: 0.01em; }
     .email-sub { font-size: 15px; }
     .email-form { flex-direction: column; }
     .email-form input { padding: 16px 20px; }
