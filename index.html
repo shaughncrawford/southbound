@@ -20,6 +20,13 @@
   @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
   /* Impact is a system font — no import needed */
 
+  /* Thinner font rendering for Impact on Mac/Chrome */
+  .nav-logo, .hero-title, .products-title, .editorial-heading,
+  .trust-number, .email-title, .footer-logo, .marquee-text {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   :root {
     --asphalt: #1A1A1A;
     --smoke: #2D2D2D;
