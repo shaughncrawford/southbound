@@ -317,13 +317,16 @@
   .hero-title {
     font-family: 'Anton', 'Impact', sans-serif;
     font-size: clamp(60px, 10vw, 130px);
-    letter-spacing: 0.05em;
+    letter-spacing: -0.01em;
     font-kerning: normal;
-    text-rendering: optimizeLegibility;
+    text-rendering: geometricPrecision;
     font-feature-settings: "kern" 1;
     text-transform: uppercase;
     line-height: 1.025;
     color: var(--warm-white);
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    -webkit-text-stroke: 0.5px currentColor;
     margin-bottom: 0;
     animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
     opacity: 0;
@@ -1098,7 +1101,7 @@
 
     :root { --nav-height: 92px; }
     .hero { padding: 0 20px 48px; }
-    .hero-title { font-size: clamp(56px, 14vw, 120px); margin-bottom: 24px; letter-spacing: 0.03em; }
+    .hero-title { font-size: clamp(56px, 14vw, 120px); margin-bottom: 24px; letter-spacing: -0.01em; }
     .hero-label { font-size: 10px; letter-spacing: 3px; margin-bottom: 16px; }
     .hero-lower { flex-direction: column; align-items: flex-start; gap: 24px; }
     .hero-desc { font-size: 15px; max-width: 100%; }
@@ -1151,7 +1154,7 @@
 
     :root { --nav-height: 88px; }
     .hero { padding: 0 16px 48px; }
-    .hero-title { font-size: clamp(48px, 15vw, 80px); line-height: 1.025; margin-bottom: 20px; letter-spacing: 0.03em; }
+    .hero-title { font-size: clamp(48px, 15vw, 80px); line-height: 1.025; margin-bottom: 20px; letter-spacing: -0.01em; }
     .hero-label { font-size: 9px; letter-spacing: 2px; }
     .hero-desc { font-size: 14px; line-height: 1.6; }
     .hero-cta { padding: 14px 24px; font-size: 11px; }
