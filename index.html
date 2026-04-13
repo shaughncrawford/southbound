@@ -154,13 +154,15 @@
   }
 
   .nav-logo {
-    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
-    font-size: 23px;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
-    color: var(--warm-white);
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 36px;
+    width: auto;
+    display: block;
   }
 
   .nav-right {
@@ -941,13 +943,13 @@
   }
 
   .footer-brand .footer-logo {
-    font-family: 'Dharma Gothic E', 'Impact', sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
-    color: var(--warm-white);
     margin-bottom: 16px;
+  }
+
+  .footer-brand .footer-logo img {
+    height: 48px;
+    width: auto;
+    display: block;
   }
 
   .footer-brand .footer-tagline {
@@ -1160,7 +1162,7 @@
     .announce-item { font-size: 9px; letter-spacing: 2px; padding: 0 24px; }
 
     .nav { height: 56px; }
-    .nav-logo { font-size: 20px; letter-spacing: 0.01em; }
+    .nav-logo img { height: 28px; }
 
     :root { --nav-height: 88px; }
     .hero { padding: 0 16px 48px; }
@@ -1198,7 +1200,7 @@
     .email-sub { font-size: 14px; margin-bottom: 32px; }
 
     .footer { padding: 40px 16px 24px; overflow: hidden; }
-    .footer-brand .footer-logo { font-size: 25px; letter-spacing: 0.01em; }
+    .footer-brand .footer-logo img { height: 40px; }
     .footer-brand .footer-tagline { font-size: 14px; max-width: 100%; }
     .footer-col-title { font-size: 9px; }
     .footer-links a { font-size: 13px; }
@@ -1284,7 +1286,7 @@
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <a href="/" class="nav-logo">Southbound</a>
+  <a href="/" class="nav-logo"><img src="/southbound-logo-orange.png" alt="Southbound"></a>
   <div class="nav-right">
     <div class="nav-links">
       <a href="#shop">Shop</a>
@@ -1480,7 +1482,7 @@
 <footer class="footer">
   <div class="footer-top">
     <div class="footer-brand">
-      <div class="footer-logo">Southbound</div>
+      <div class="footer-logo"><img src="/southbound-logo-orange.png" alt="Southbound"></div>
     </div>
     <div>
       <div class="footer-col-title">Shop</div>
